@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi luna</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to bottom, #1e2a47, #2a3c6d, #001730);
+      color: #ffffff;
+    }
+
+    body:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/white-diamond.png');
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .book {
+      width: 90vw;
+      height: 85vh;
+      max-width: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .book-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .page {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+      position: absolute;
+      overflow-y: auto;
+      padding: 20px;
+      transform: scale(0.9);
+      opacity: 0;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .page.visible {
+      transform: scale(1);
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .cover {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.8rem;
+      padding: 20px;
+    }
+
+    .chapter h2 {
+      font-size: 1.5rem;
+      color: #34495e;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .chapter p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #2c3e50;
+      text-align: justify;
+    }
+
+    .chapter p:first-letter {
+      font-size: 1.8rem;
+      color: #e74c3c;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      font-size: 1.5rem;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #ecf0f1;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      transform: translateY(-50%);
+      transition: background 0.3s ease;
+    }
+
+    .nav-button:hover {
+      background: rgba(236, 240, 241, 0.3);
+    }
+
+    .left-button {
+      left: -15px;
+    }
+
+    .right-button {
+      right: -15px;
+    }
+
+    @media (max-width: 600px) {
+      .book {
+        height: 95vh;
+      }
+
+      .chapter h2 {
+        font-size: 1.2rem;
+      }
+
+      .chapter p {
+        font-size: 0.9rem;
+      }
+
+      .nav-button {
+        font-size: 1.2rem;
+        padding: 8px;
+      }
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="book">
+  
+  <div class="book-container">
+    <div class="page cover visible" id="cover">
+      <h6>Un Fantasma y su Luna:</h6><hr>
+      <p><center>"La Magia de un Encuentro que Transformó Dos Almas"</center></p>
+      <h6>Dedicado a Karen Mantilla | © ✞ - JJS </h6>
+    </div>
+    <div class="page" id="page1">
+      <div class="chapter">
+        <h2>Capítulo 1: El Primer Encuentro</h2>
+        <p>Un 17 de octubre, decidí entrar al live de una chica llamada Karen. Ella es una de esas personas que pasan horas en directo en TikTok, 
+          compartiendo momentos con su comunidad, hablando, riendo, y 
+          creando un ambiente donde todos parecían sentirse en casa. Ese día, por alguna razón, 
+          decidí hacer algo diferente: comenté un simple emoji de gorila. Karen se quedó intrigada, 
+          sin entender el significado, pero fue suficiente para despertar su curiosidad.</p>
+      </div>
+    </div>
+    <div class="page" id="page2">
+      <div class="chapter">
+        <h2>Parte 1: El Misterioso Fantasma</h2>
+        <p>Al ver que le interesaba tanto, Karen comenzó a preguntar sobre mí: quién era, 
+          mi nombre, de dónde venía. Sin embargo, decidí mantener mi identidad oculta. 
+          Había razones para ello, cicatrices de mi pasado que aún dolían, así que me protegía detrás del anonimato. 
+          Karen lo comprendió y, en lugar de insistir, me bautizó como “su fantasma”, 
+          alguien que aparecía de la nada en su live. Esa misma noche, 
+          me defendió ante una persona que criticaba mi actitud misteriosa, demostrando que sin siquiera conocerme 
+          estaba dispuesta a apoyarme.</p>
+      </div>
+
+  </div>
+  <div class="page" id="page3">
+    <div class="chapter">
+      <h2>Parte 2: La Noche de Película</h2>
+      <p>Esa noche fue especial. 
+        Karen me invitó a ver una película en Rave, pero ese lugar me traía recuerdos difíciles. 
+        Le pedí, en cambio, que viéramos la película en Discord. 
+        Ella accedió, y hasta creó un servidor especial solo para ello. 
+        Mientras escogíamos qué ver, mencioné que lo dejáramos a la suerte con una ruleta. 
+        Esto la confundió y la asustó. Cerró el live de inmediato, pensando que tal vez yo era alguien de su pasado. 
+        Sentí que era momento de aclararlo, así que por primera vez le hablé directamente.</p>
+    </div>
+  </div>
+  <div class="page" id="page4">
+    <div class="chapter">
+      <h2>Parte 3: La Voz de la Confianza</h2>
+      <p>Karen accedió a entrar a Discord para escuchar mi voz y asegurarse de que no era la persona que temía. 
+        Esa noche hablamos de tantas cosas que el tiempo pareció detenerse. 
+        Hasta dejamos de lado a su amiga Angelita. 
+        Desde ese día, no hemos dejado de hablar, y poco a poco, Karen fue ganándose mi confianza. 
+        Con el tiempo, empezó a gustarme, no por su físico, sino por su esencia. 
+        Karen era esa persona capaz de crear un espacio seguro para mí, y el sentimiento era mutuo. 
+        Aunque ambos habíamos pasado por rupturas recientes, lo que sentíamos era tan intenso que no podíamos ignorarlo.</p>
+    </div>
+  </div>
+  <div class="page" id="page5">
+    <div class="chapter">
+      <h2>Parte 4: El Sol y la Luna</h2>
+      <p>Nuestra conexión era tan pura y especial que parecía tener su propio ritmo. 
+        Sin darnos cuenta, ella comenzó a ser mi “luna” y yo para ella me convertí en su “sol”. 
+        Todo era nuevo y maravilloso, y nos sentíamos unidos por algo que iba más allá de las palabras. 
+        Las canciones de Solamentedan se convirtieron en nuestra banda sonora, 
+        transportándonos a nuestro propio universo cada vez que las escuchábamos. 
+        Sabíamos que aún teníamos cosas por sanar, y por eso creamos una especie de barrera, 
+        un freno que nos protegía a ambos mientras encontrábamos nuestro equilibrio.</p>
+    </div>
+  </div>
+  <div class="page" id="page6">
+    <div class="chapter">
+      <h2>Parte 5: El Lenguaje de los Pequeños Detalles</h2>
+      <p>Empecé a llamarla “cachetitos rosaditos” y con eso ella solía ponerse nerviosa en sus lives cuando yo aparecía, 
+        lo cual todos notaban. Para mí, ese nerviosismo era adorable, y deseaba estar ahí para ella, 
+        atravesar la pantalla y darle un beso. Fue entonces cuando sentí la necesidad de decirle que la amaba, 
+        una palabra que me daba miedo pronunciar. 
+        Pero Karen había demostrado ser alguien que comprendía mis sentimientos, 
+        así que le hice una página especial como mi manera de decirle cuánto significaba para mí.</p>
+    </div>
+  </div>
+  <div class="page" id="page7">
+    <div class="chapter">
+      <h2>Parte 6: La Bendición del Universo</h2>
+      <p>Cuando Karen publicó la página y etiquetó al cantante, quien incluso comentó su publicación, 
+        fue como si el universo nos diera una señal de apoyo. Desde entonces, 
+        cuando veo en mi teléfono “Mi luna” en una llamada entrante, sé que es Karen, y me siento feliz, 
+        esperando escucharla. Ella se ha convertido en mi 11:11, 
+        ese deseo que ambos compartimos y que nos conecta a través de algo tan simple y a la vez significativo.</p>
+    </div>
+  </div>
+  <div class="page" id="page8">
+    <div class="chapter">
+      <h2>Parte 7: Nuestra Historia Incompleta</h2>
+      <p>Hoy se cumple un mes desde que comenzamos a conocernos de verdad. Me bautizó como Eliot y hasta me dedicó una nota. 
+        Solo nosotros sabemos lo que ocurrió aquella noche del 21 de octubre. 
+        Es una historia que no quiero que tenga fin, aunque muchos no entiendan lo que tenemos. 
+        Nos peleamos y nos reconciliamos, pero siempre de una manera que nos hace sonreír. 
+        Ella es una caja de sorpresas, alguien que vio mi anime favorito y hasta instaló mi 
+        videojuego favorito solo para jugar conmigo.</p>
+    </div>
+  </div>
+  <div class="page" id="page9">
+    <div class="chapter">
+      <h2>Parte 8: La Mirada Angelical</h2>
+      <p>Cada vez que la veo, esa “miradita angelical” me recuerda que no quiero que esta historia termine. 
+        Sus ojos, esos dos destellos de luz, guardan tanto en su profundidad, 
+        como si pudieran ver más allá de lo que los demás pueden. 
+        Cada encuentro se siente como una danza que ni siquiera hemos aprendido, 
+        pero que ambos ejecutamos con naturalidad, como si el universo ya nos hubiera destinado a estar aquí, 
+        a vivir este momento. Y mientras pienso en eso, me doy cuenta de algo: lo que comenzó como algo tan pequeño, 
+        como un emoji lanzado al azar, se ha transformado en un vínculo que, aunque invisible para el mundo, 
+        es lo único que me importa ahora.</p>
+    </div>
+  </div>
+  <div class="page" id="page9">
+    <div class="chapter">
+      <h2>Continuación (Parte 8): </h2>
+      <p>El mes ha pasado volando, pero la conexión entre nosotros sigue creciendo, más fuerte que nunca. 
+        Ella, con su risa contagiosa, con su alma libre y tan pura, me hace pensar que quizás, solo quizás, 
+        el amor no es lo que nos enseñan a esperar, sino lo que somos capaces de crear con otro ser, 
+        sin miedo, sin barreras, solo con la verdad de lo que sentimos. 
+        Este mes, que comenzó con un simple comentario en un live, 
+        ha sido una montaña rusa de emociones, de palabras no dichas, pero sentidas profundamente. 
+        La siento cerca, aunque esté a kilómetros de distancia, y la extraño incluso cuando estamos a solo unos 
+        minutos de la pantalla.</p>
+    </div>
+  </div>
+  <div class="page" id="page9">
+    <div class="chapter">
+      <h2>Continuación (Parte 8): </h2>
+      <p>Mi corazón late más rápido cuando veo “Mi luna” en la pantalla de mi teléfono, 
+        y el sonido de su llamada me llena de algo cálido que no había sentido antes. 
+        Sé que algo más grande que nosotros dos nos une, algo que ni el tiempo ni la distancia podrán romper. 
+        Quiero verla reír, quiero escuchar su voz cada día, quiero ser su refugio, así como ella ha sido el mío.</p>
+    </div>
+  </div>
+  <div class="page" id="page9">
+    <div class="chapter">
+      <h2>Continuación (Parte 8): </h2>
+      <p>Y mientras observo su rostro en esa llamada, esa mirada angelical, 
+        me doy cuenta de que en ella he encontrado mi paz, aunque el mundo a nuestro alrededor siga girando. 
+        No sé qué nos depara el futuro, pero sé que quiero que esté a mi lado, siempre. 
+        Quiero ser el sol que ilumina su noche, y que ella sea la luna que me guía en mis momentos de oscuridad. 
+        Porque si algo he aprendido en este tiempo, es que el amor no se trata de buscar algo perfecto, 
+        sino de encontrar a esa persona que te hace sentir completo, incluso en medio de nuestras imperfecciones.</p>
+    </div>
+  </div>
+  <div class="page" id="page9">
+    <div class="chapter">
+      <h2>Continuación (Parte 8): </h2>
+      <p>No sé qué pasará después. Tal vez sea el principio de algo aún más grande. 
+        Tal vez este sea solo el primer capítulo de una historia que se sigue escribiendo cada día, 
+        de una conexión que crece, se fortalece, y que tiene el poder de cambiarlo todo. 
+        Porque si el universo nos ha dado este momento, entonces, ¿por qué no creer que lo mejor está por venir?
+      </p>
+    </div>
+  </div>
+  <audio autoplay loop>
+    <source src="enti.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+  <button class="nav-button left-button" id="prevButton">&#10094;</button>
+  <button class="nav-button right-button" id="nextButton">&#10095;</button>
+</div>
+
+<script>
+  const pages = document.querySelectorAll('.page');
+  let currentPage = 0;
+
+  function updatePage(direction) {
+    pages[currentPage].classList.remove('visible');
+    currentPage = (currentPage + direction + pages.length) % pages.length;
+    pages[currentPage].classList.add('visible');
+  }
+
+  document.getElementById('prevButton').addEventListener('click', () => updatePage(-1));
+  document.getElementById('nextButton').addEventListener('click', () => updatePage(1));
+</script>
+
+</body>
+
+</html>
